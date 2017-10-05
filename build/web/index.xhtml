@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <h:head>
+        <title>Welcome</title>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $(function () {
+                $(".datepicker").datepicker({
+                    dateFormat: 'dd-mm-yy',
+                    yearRange: "-75:+00",
+                    maxDate: "+0m +0d",
+                }
+                )
+
+            });
+        </script>
+    </h:head>
+    <h:body>
+        <div class="navbar navbar-default navbar-transparent">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="./" class="navbar-brand">CSD322</a>
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar-main">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <h2> Assignment 1</h2>
+                        </li>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+
+                    </ul>
+                </div>
+            </div>
+        </div>	
+        #{messages.nameMessage}
+        <div class ="container">
+            <div class="row">
+                <h:form>
+                    <h3 style ='color:#58AEE1'>Presentation Form</h3>   
+                    <table>
+                        <tr>
+                            <td><p>Name:  <h:inputText id="name" value="#{user.name}" validatorMessage="#{msg.nameMessage}"></h:inputText></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p>Address: <h:inputText value="#{user.address}" validatorMessage="#{msg.addressMessage}"></h:inputText></p>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <p>Date of Birth: <h:inputText id="dob" styleClass="datepicker" validatorMessage="#{msg.dobMessage}" value="#{user.dob}"></h:inputText></p> 
+                                <h:message for="dob"/>                           
+                            </td>
+                        </tr>
+
+
+                    </table> 
+
+                    <table>
+                        <td><p><h:commandButton value="Sign Up" action="welcome"/></p></td>
+                    </table>    
+
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+</html>
